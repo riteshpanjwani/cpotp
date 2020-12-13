@@ -1,12 +1,22 @@
+import re
 from setuptools import setup
 
+
+VERSIONFILE="cpotp/_version.py"
+verstrline = open(VERSIONFILE, "rt").read()
+VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
+mo = re.search(VSRE, verstrline, re.M)
+if mo:
+    verstr = mo.group(1)
+else:
+    raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE,))
 
 with open('README.md') as f:
     long_description = f.read()
 
 setup(
     name='cpotp',
-    version='0.0.4',
+    version=verstr,
     url='https://github.com/riteshpanjwani/cpotp',
     author='Ritesh Panjwani',
     author_email='riteshpanjwani@gmail.com',

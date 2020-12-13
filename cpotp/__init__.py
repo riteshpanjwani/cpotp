@@ -3,7 +3,8 @@ import time
 from pathlib import Path
 
 import nltk
-if not os.path.exists(Path.home() / 'nltk_data/tokenizers/punkt'):
+nltk_data_path = 'nltk_data/tokenizers/punkt' if os.name == 'posix' else 'AppData/Roaming/nltk_data/tokenizers/punkt'
+if not os.path.exists(Path.home() / nltk_data_path):
     nltk.download('punkt')
 from nltk.tokenize import word_tokenize, sent_tokenize
 import pyderman
@@ -14,8 +15,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
-__version__ = '0.0.4'
+from _version import __version__
 
 
 GOOGLE_MESSAGES_URL = "https://messages.google.com/web"
@@ -27,7 +27,6 @@ if not ('CHROME_USER_DATA_DIR' in os.environ and os.path.exists(Path(os.environ[
         except the "/Default" part.
         Example: export CHROME_USER_DATA_DIR=/home/riteshp/.config/google-chrome
     ''')
-
 
 
 class CpOTP:

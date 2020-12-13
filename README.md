@@ -80,7 +80,7 @@ Close any instance of https://messages.google.com and fire up a terminal / comma
 cpotp
 ```
 
-It will start a Chrome window which will be minimized, on the first run, restore the window, scan the QR code using your Messages app on the phone and pair it, on the subsequent runs, window need not be restored.
+On the first run, scan the QR code using your Messages app on the phone and pair it.
 
 ## License
 For license information, see [LICENSE.md](LICENSE.md).

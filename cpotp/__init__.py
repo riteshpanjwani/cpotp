@@ -15,7 +15,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from _version import __version__
+from cpotp._version import __version__
 
 
 GOOGLE_MESSAGES_URL = "https://messages.google.com/web"
@@ -44,7 +44,6 @@ class CpOTP:
             f"--user-data-dir={str(Path(clean_user_data_dir) / 'cpotp')}"
         )
         self._driver = webdriver.Chrome(self._driver_path, options=options)
-        self._driver.minimize_window()
         return self._driver
 
     def _login(self):

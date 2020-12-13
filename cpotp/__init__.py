@@ -3,7 +3,8 @@ import time
 from pathlib import Path
 
 import nltk
-nltk.download('punkt')
+if not os.path.exists(Path.home() / 'nltk_data/tokenizers/punkt'):
+    nltk.download('punkt')
 from nltk.tokenize import word_tokenize, sent_tokenize
 import pyderman
 import pyperclip
@@ -14,7 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 
 GOOGLE_MESSAGES_URL = "https://messages.google.com/web"
@@ -39,12 +40,12 @@ class CpOTP:
         options = Options()
         options.add_argument("--enable-javascript")
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
-        options.add_argument("--start-maximized")
         clean_user_data_dir = os.environ['CHROME_USER_DATA_DIR'].replace('/Default', '').strip().rstrip('/')
         options.add_argument(
             f"--user-data-dir={str(Path(clean_user_data_dir) / 'cpotp')}"
         )
         self._driver = webdriver.Chrome(self._driver_path, options=options)
+        self._driver.minimize_window()
         return self._driver
 
     def _login(self):
@@ -91,8 +92,7 @@ class CpOTP:
                 print('OTP not found in the last received sms.')
             else:
                 pyperclip.copy(otp)
-                print('OTP has been copied to the clipboard.')
-                
+                print('OTP has been copied to the clipboard.')           
         except Exception as e:
             print(str(e))
         finally:

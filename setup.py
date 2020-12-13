@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name='cpotp',
-    version='0.0.2',
+    version='0.0.3',
     url='https://github.com/riteshpanjwani/cpotp',
     author='Ritesh Panjwani',
     author_email='riteshpanjwani@gmail.com',

@@ -6,7 +6,7 @@ Command line tool to copy the latest OTP received in the connected Android devic
 ## Why?
 Simply because I don't want to pickup my phone, open the SMS app, remember the OTP, and then enter it.
 
-Now you might say, haven't you heard about https://messages.google.com? Well, that's what is being used in the package. Selenium Chrome driver will automates this process.
+Now you might say, haven't you heard about https://messages.google.com? Well, that's what is being used in the package. Selenium Chrome driver automates this process.
 
 ## Prerequisite
 - Python >= 3.6
@@ -66,6 +66,7 @@ except the "/Default" part. For example:
 ```
 export CHROME_USER_DATA_DIR=/home/<username>/.config/google-chrome
 ```
+Selenium will create a Chrome user profile called "cpotp" in this directory.
 
 ## Usage
 
@@ -73,11 +74,13 @@ Note: the following command downloads the following files on the first run:
 - appropriate [Chromium drivers](https://chromedriver.chromium.org/) using [pyderman](https://pypi.org/project/pyderman/)
 - [NLTK punkt package](https://www.nltk.org/data.html) to [tokenize](https://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html) the SMS
 
-Fire up a terminal / command prompt and run:
+Close any instance of https://messages.google.com and fire up a terminal / command prompt and run:
 
 ```
 cpotp
 ```
+
+It will start a Chrome window which will be minimized, on the first run, restore the window, scan the QR code using your Messages app on the phone and pair it, on the subsequent runs, window need not be restored.
 
 ## License
 For license information, see [LICENSE.md](LICENSE.md).

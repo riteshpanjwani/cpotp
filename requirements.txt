@@ -1,0 +1,4 @@
+nltk
+pyderman
+pyperclip
+selenium

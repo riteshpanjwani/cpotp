@@ -15,7 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 
 GOOGLE_MESSAGES_URL = "https://messages.google.com/web"

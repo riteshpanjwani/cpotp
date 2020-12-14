@@ -3,6 +3,8 @@
 
 Command line tool to copy the latest OTP received in the connected Android device to the clipboard.
 
+<img src="./examples/cpotp.svg">
+
 ## Why?
 Simply because I don't want to pickup my phone, open the SMS app, remember the OTP, and then enter it.
 

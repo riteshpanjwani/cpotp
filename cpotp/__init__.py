@@ -40,7 +40,9 @@ class CpOTP:
     def _init_driver(self, headless=True):
         options = Options()
         if headless:
-            options.add_argument("--headless")    
+            options.add_argument("--headless")
+            if os.name == 'nt':
+                options.add_argument("--disable-gpu")
         options.add_argument("--enable-javascript")
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
         clean_user_data_dir = os.environ['CHROME_USER_DATA_DIR'].replace('/Default', '').strip().rstrip('/')
@@ -58,6 +60,7 @@ class CpOTP:
             driver.execute_script("arguments[0].click();", toggle)
             WebDriverWait(driver, 300).until(EC.url_contains('conversations'))
         except (TimeoutException, Exception) as e:
+            print(str(e))
             print('It seems you are already logged in. Run cpotp instead.')
         finally:
             driver.quit()

@@ -30,6 +30,6 @@ setup(
     install_requires=[line.replace('\n', '') for line in open('requirements.txt').readlines()],
     python_requires='>=3.6',
     entry_points = {
-        'console_scripts': ['cpotp=cpotp.command_line:main']
+        'console_scripts': ['cpotp=cpotp.command_line:main', 'cpotp-setup=cpotp.command_line:login']
     }
 )

@@ -74,13 +74,17 @@ Note: the following command downloads the following files on the first run:
 - appropriate [Chromium drivers](https://chromedriver.chromium.org/) using [pyderman](https://pypi.org/project/pyderman/)
 - [NLTK punkt package](https://www.nltk.org/data.html) to [tokenize](https://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html) the SMS
 
-Close any instance of https://messages.google.com and fire up a terminal / command prompt and run:
+On the first run, scan the QR code using your Messages app on the phone and pair it. Close any instance of https://messages.google.com and fire up a terminal / command prompt and run:
+
+```
+cpotp-setup
+```
+
+On subsequent runs, you just have to run:
 
 ```
 cpotp
 ```
-
-On the first run, scan the QR code using your Messages app on the phone and pair it.
 
 ## License
 For license information, see [LICENSE.md](LICENSE.md).
